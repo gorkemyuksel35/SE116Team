@@ -1,6 +1,6 @@
 package cells;
 
-public abstract class Cell {
+public abstract class Cell {                // This class is a core of cells.
     protected int x;
     protected int y;
     protected char symbol;
