@@ -14,5 +14,20 @@ public class ServiceDistribution {
         int sy = serviceBuilding.getY();
         int radius = serviceBuilding.getRadius();
         char serviceSymbol = serviceBuilding.getSymbol();
+        for (int i = 0; i < cityMap.getRows(); i++) {
+            for (int j = 0; j < cityMap.getCols(); j++) {
+                Cell cell = cityMap.getCell(i, j);
+
+                if (!(cell instanceof Zone)) {
+                    continue;
+                }
+                double distance = Math.sqrt(Math.pow(i - sx, 2) + Math.pow(j - sy, 2));
+
+                if (distance <= radius) {
+                    Zone zone = (Zone) cell;
+                    applyService(zone, serviceSymbol);
+                }
+            }
+        }
     }
-    }
+
