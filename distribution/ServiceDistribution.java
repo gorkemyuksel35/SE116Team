@@ -30,4 +30,19 @@ public class ServiceDistribution {
             }
         }
     }
+    private static void applyService(Zone zone, char serviceSymbol) {
+        switch (serviceSymbol) {
+            case 'F': // police station -> security
+                zone.security = true;
+                break;
+            case 'D': // hospital -> health
+                zone.health = true;
+                break;
+            case 'S': // school -> education
+                zone.education = true;
+                break;
+        }
+    }
+}
+
 
