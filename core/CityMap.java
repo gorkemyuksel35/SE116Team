@@ -1,4 +1,52 @@
 package core;
 
-public class CityMap {
+import cells.Cell;
+import cells.Empty;
+
+public class CityMap {          // This class helps us for creating map. Also, it checks x and y. If they are invalid it throws exception.
+    protected Cell[][] grid;
+    protected int rows;
+    protected int cols;
+
+    public CityMap(int rows, int cols) {
+        this.rows = rows;
+        this.cols = cols;
+
+        grid = new Cell[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                grid[i][j] = new Empty(i, j);
+            }
+        }
+    }
+
+    public boolean isValidPosition(int x, int y) {
+        return x >= 0 && y >= 0 && x < rows && y < cols;
+    }
+
+    public void setCell(int x, int y, Cell cell) {
+        if (!isValidPosition(x, y)) {
+            throw new RuntimeException("Invalid position!");
+        }
+
+        grid[x][y] = cell;
+    }
+
+    public Cell getCell(int x, int y) {
+        if (!isValidPosition(x, y)) {
+            throw new RuntimeException("Invalid position!");
+        }
+
+        return grid[x][y];
+    }
+
+    public void printMap() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(grid[i][j].getSymbol() + " ");
+            }
+            System.out.println();
+        }
+    }
 }
