@@ -113,19 +113,113 @@ public class Zone {
   public void setHasEducation(boolean hasEducation) {
     this.hasEducation = hasEducation;
   }
+  public void updateLevel(){
+  }
 }
   class Housing extends Zone{
     public Housing(int level, int population, int goods, int lifestyle, double electricity, double water, double internet, boolean hasUtilities, boolean hasSecurity, boolean hasHealth, boolean hasEducation) {
       super(level, population, goods, lifestyle, electricity, water, internet, hasUtilities, hasSecurity, hasHealth, hasEducation);
+     }
+     @Override
+       public void updateLevel(){
+        if(getElectricity() == 0  || getWater() == 0 || getInternet()==0){
+          setLevel(0);
+          return;
+        }
+        int currentLevel=getLevel();
+        int nextLevel=currentLevel;
+        if(currentLevel==0){
+            if(isHasUtilities()){
+                nextLevel=1;
+            }
+            else if(currentLevel==1){
+                if(isHasSecurity() && isHasHealth() && isHasEducation()){
+                    nextLevel=2;
+                }
+            }
+            else if(currentLevel==2){
+                if(getLifestyle()>0){
+                    nextLevel=3;
+                }
+            }
+            else if(currentLevel==3){
+                if(getLifestyle()<=0){
+                    nextLevel=2;
+                }
+            }
+            setLevel(nextLevel);
+        }
      }
   }
   class Industrial extends Zone{
     public Industrial(int level, int population, int goods, int lifestyle, double electricity, double water, double internet, boolean hasUtilities, boolean hasSecurity, boolean hasHealth, boolean hasEducation) {
       super(level, population, goods, lifestyle, electricity, water, internet, hasUtilities, hasSecurity, hasHealth, hasEducation);
     }
+    @Override
+     public void updateLevel(){
+       if(getElectricity()==0 || getWater()==0){
+           setLevel(0);
+           return;
+       }
+        int currentLevel=getLevel();
+        int nextLevel=currentLevel;
+
+        if(currentLevel==0){
+             if(getPopulation()>0 && isHasUtilities()){
+                 nextLevel=1;
+             }
+        }
+        else if(currentLevel==1){
+            if(isHasSecurity()){
+                nextLevel=2;
+            }
+        }
+        else if(currentLevel==2){
+            if(getPopulation()>3){
+                nextLevel=3;
+            }
+        }
+        else if(currentLevel==3){
+            if(getPopulation()<=3){
+                nextLevel=2;
+            }
+        }
+        setLevel(nextLevel);
+    }
   }
 class Commercial extends Zone {
   public Commercial(int level, int population, int goods, int lifestyle, double electricity, double water, double internet, boolean hasUtilities, boolean hasSecurity, boolean hasHealth, boolean hasEducation) {
     super(level, population, goods, lifestyle, electricity, water, internet, hasUtilities, hasSecurity, hasHealth, hasEducation);
   }
+   @Override
+   public void updateLevel(){
+       if(getElectricity() == 0  || getWater() == 0 || getInternet()==0){
+           setLevel(0);
+           return;
+       }
+       int currentLevel=getLevel();
+       int nextLevel=currentLevel;
+
+       if(currentLevel==0){
+           if(getPopulation()>0 && getGoods()>0 && isHasUtilities()){
+               nextLevel=1;
+           }
+       }
+       else if(currentLevel==1){
+           if(isHasSecurity()){
+               nextLevel=2;
+           }
+       }
+       else if(currentLevel==2){
+           if(getPopulation()>3 && getGoods()>3){
+               nextLevel=3;
+           }
+       }
+       else if(currentLevel==3){
+           if(getPopulation()<=3){
+               nextLevel=2;
+           }
+       }
+       setLevel(nextLevel);
+   }
 }
