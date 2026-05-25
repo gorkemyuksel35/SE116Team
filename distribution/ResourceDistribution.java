@@ -24,5 +24,53 @@ public class ResourceDistribution {
                 else if (cell instanceof Commercial) commercials.add((Commercial) cell);
             }
         }
+        // the summation of the lastProduction for all of the housings
+        int totalPopulation = 0;
+        for (Housing h : houses) {
+            totalPopulation += h.lastProduction;
+        }
 
+        // dividing for each of the industrial and commercials
+        int indComCount = industrials.size() + commercials.size();
+        if (indComCount > 0 && totalPopulation > 0) {
+            int popPerZone = totalPopulation / indComCount; // tamsayi bolmesi
+            for (Industrial ind : industrials) {
+                ind.population += popPerZone;
+            }
+            for (Commercial com : commercials) {
+                com.population += popPerZone;
+            }
+        }
+
+        //summation of the last Productions for all Industrials
+        int totalGoods = 0;
+        for (Industrial ind : industrials) {
+            totalGoods += ind.lastProduction;
+        }
+
+        // dividing for each commercial
+        if (!commercials.isEmpty() && totalGoods > 0) {
+            int goodsPerCom = totalGoods / commercials.size(); // tamsayi bolmesi
+            for (Commercial com : commercials) {
+                com.goods += goodsPerCom;
+            }
+        }
+
+        //summation of the last Productions for all Commercials
+        int totalLifestyle = 0;
+        for (Commercial com : commercials) {
+            totalLifestyle += com.lastProduction;
+        }
+
+        // dividing equally for each housing
+        if (!houses.isEmpty() && totalLifestyle > 0) {
+            int lifestylePerHouse = totalLifestyle / houses.size(); // tamsayi bolmesi
+            for (Housing h : houses) {
+                h.lifestyle += lifestylePerHouse;
+            }
+        }
     }
+}
+
+
+
