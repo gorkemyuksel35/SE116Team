@@ -21,6 +21,14 @@ public class CityMap {          // This class helps us for creating map. Also, i
         }
     }
 
+    public int getRows() {
+        return rows;
+    }
+
+    public int getCols() {
+        return cols;
+    }
+
     public boolean isValidPosition(int x, int y) {
         return x >= 0 && y >= 0 && x < rows && y < cols;
     }
