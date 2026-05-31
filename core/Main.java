@@ -1,11 +1,3 @@
-//
-//
-//
-//
-// For now, this class is test class.
-// I tested my codes and everything is working properly. Now, we have something that actually works.
-
-
 package core;
 
 import cells.*;

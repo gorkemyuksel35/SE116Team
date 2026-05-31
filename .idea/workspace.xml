@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="This is a bugged class.">
-      <change beforePath="$PROJECT_DIR$/.idea/SE116Team.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SE116Team.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cells/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/cells/Hospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cells/PoliceStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/cells/PoliceStation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cells/School.java" beforeDir="false" afterPath="$PROJECT_DIR$/cells/School.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cells/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/cells/Zone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/CityMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/CityMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exceptions/SE116ConfigurationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/exceptions/SE116ConfigurationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zones/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/zones/Commercial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zones/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/zones/Housing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zones/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/zones/Industrial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

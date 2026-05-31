@@ -30,20 +30,20 @@ public class Housing extends Zone {
             level--;
         }
 
-        lastProduction = calculateProduction();
+        System.out.println(symbol + " (" + x + "," + y + ") updated to level " + level);
     }
 
     @Override
     public int calculateProduction() {
-        int clcltPrdctn = Math.min(electricity, Math.min(water, internet));
+        int m = Math.min(electricity, Math.min(water, internet));
 
         switch (level) {
             case 1:
-                return clcltPrdctn;
+                return m;
             case 2:
-                return 2 * clcltPrdctn;
+                return 2 * m;
             case 3:
-                return 2 * clcltPrdctn + lifestyle;
+                return 2 * m + lifestyle; // 2m + lifestyle received
             default:
                 return 0;
         }

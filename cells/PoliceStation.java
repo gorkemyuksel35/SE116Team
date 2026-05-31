@@ -1,7 +1,7 @@
 package cells;
 
 public class PoliceStation extends ServiceBuilding {
-    public PoliceStation(int x, int y, int radius) {
-        super(x, y, 'F', radius);
+    public PoliceStation(int x, int y) {
+        super(x, y, 'F', 5);
     }
 }

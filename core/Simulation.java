@@ -1,14 +1,18 @@
 package core;
 
-import cells.Cell;
-import cells.Zone;
+import cells.*;
+import distribution.ServiceDistribution;
+import distribution.UtilityDistribution;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Simulation {
     private CityMap cityMap;
     private int maxTicks;
-    private int pooledPopulation;
-    private int pooledGoods;
-    private int pooledLifestyle;
+
+    private int currentPooledPopulation = 0;
+    private int currentPooledGoods = 0;
+    private int currentPooledLifestyle = 0;
 
     public Simulation(CityMap cityMap, int maxTicks) {
         this.cityMap = cityMap;
@@ -18,8 +22,9 @@ public class Simulation {
     public void run() {
         for (int tick = 1; tick <= maxTicks; tick++) {
             System.out.println();
-            System.out.println("Tick " + tick);
-            System.out.println();
+            System.out.println("=================================");
+            System.out.println("TICK " + tick);
+            System.out.println("=================================");
 
             resetZones();
             distributeServices();
@@ -35,72 +40,118 @@ public class Simulation {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
-
                 if (cell instanceof Zone) {
-                    Zone zone = (Zone) cell;
-                    zone.resetInputs();
+                    ((Zone) cell).resetInputs();
                 }
             }
         }
     }
 
     private void distributeServices() {
-
+        for (int i = 0; i < cityMap.getRows(); i++) {
+            for (int j = 0; j < cityMap.getCols(); j++) {
+                Cell cell = cityMap.getCell(i, j);
+                if (cell instanceof ServiceBuilding) {
+                    ServiceDistribution.distribute(cityMap, (ServiceBuilding) cell);
+                }
+            }
+        }
     }
 
     private void distributeUtilities() {
-
+        for (int i = 0; i < cityMap.getRows(); i++) {
+            for (int j = 0; j < cityMap.getCols(); j++) {
+                Cell cell = cityMap.getCell(i, j);
+                if (cell instanceof UtilityProvider) {
+                    UtilityDistribution.distribute(cityMap, (UtilityProvider) cell);
+                }
+            }
+        }
     }
 
     private void distributeResources() {
+        List<Zone> housingZones = new ArrayList<>();
+        List<Zone> industrialZones = new ArrayList<>();
+        List<Zone> commercialZones = new ArrayList<>();
 
+        for (int i = 0; i < cityMap.getRows(); i++) {
+            for (int j = 0; j < cityMap.getCols(); j++) {
+                Cell cell = cityMap.getCell(i, j);
+                if (cell instanceof Zone) {
+                    char symbol = cell.getSymbol();
+                    if (symbol == 'H') housingZones.add((Zone) cell);
+                    else if (symbol == 'I') industrialZones.add((Zone) cell);
+                    else if (symbol == 'C') commercialZones.add((Zone) cell);
+                }
+            }
+        }
+
+        int totalJobZones = industrialZones.size() + commercialZones.size();
+        if (totalJobZones > 0 && currentPooledPopulation > 0) {
+            int share = currentPooledPopulation / totalJobZones;
+            for (Zone z : industrialZones) z.setPopulation(share);
+            for (Zone z : commercialZones) z.setPopulation(share);
+        }
+
+        if (!commercialZones.isEmpty() && currentPooledGoods > 0) {
+            int share = currentPooledGoods / commercialZones.size();
+            for (Zone z : commercialZones) z.setGoods(share);
+        }
+
+        if (!housingZones.isEmpty() && currentPooledLifestyle > 0) {
+            int share = currentPooledLifestyle / housingZones.size();
+            for (Zone z : housingZones) z.setLifestyle(share);
+        }
     }
 
     private void updateZones() {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
-
                 if (cell instanceof Zone) {
-                    Zone zone = (Zone) cell;
-                    zone.updateZone();
+                    ((Zone) cell).updateZone();
                 }
             }
         }
     }
 
     private void collectProduction() {
-        pooledPopulation = 0;
-        pooledGoods = 0;
-        pooledLifestyle = 0;
+        int nextPopulation = 0;
+        int nextGoods = 0;
+        int nextLifestyle = 0;
 
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
+                if (cell instanceof Zone) {
+                    Zone zone = (Zone) cell;
+                    int prod = zone.calculateProduction();
+                    zone.setLastProduction(prod);
 
-                if (cell instanceof zones.Housing) {
-                    pooledPopulation += ((Zone) cell).calculateProduction();
-                } else if (cell instanceof zones.Industrial) {
-                    pooledGoods += ((Zone) cell).calculateProduction();
-                } else if (cell instanceof zones.Commercial) {
-                    pooledLifestyle += ((Zone) cell).calculateProduction();
+                    char symbol = zone.getSymbol();
+                    if (symbol == 'H') nextPopulation += prod;
+                    else if (symbol == 'I') nextGoods += prod;
+                    else if (symbol == 'C') nextLifestyle += prod;
                 }
             }
         }
-        System.out.println();
-        System.out.println("Population: " + pooledPopulation);
-        System.out.println("Goods: " + pooledGoods);
-        System.out.println("Lifestyle: " + pooledLifestyle);
+
+        currentPooledPopulation = nextPopulation;
+        currentPooledGoods = nextGoods;
+        currentPooledLifestyle = nextLifestyle;
+
+        System.out.println("\n=== PRODUCTION REPORT ===");
+        System.out.println("Population Pooled: " + currentPooledPopulation);
+        System.out.println("Goods Pooled: " + currentPooledGoods);
+        System.out.println("Lifestyle Pooled: " + currentPooledLifestyle);
     }
 
     private void printZones() {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
-
                 if (cell instanceof Zone) {
-                    Zone zone = (Zone) cell;
-                    System.out.print(zone.getSymbol() + "(" + zone.getLevel() + ")");
+                    System.out.print(cell + " ");
                 } else {
                     System.out.print(cell.getSymbol() + " ");
                 }
@@ -108,6 +159,4 @@ public class Simulation {
             System.out.println();
         }
     }
-
-
 }

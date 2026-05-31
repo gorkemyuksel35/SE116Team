@@ -20,7 +20,7 @@ public class Industrial extends Zone {
             targetLvl = 2;
         }
 
-        if (targetLvl == 2 && population > getDemand()) {
+        if (targetLvl == 2 && population > 0) {
             targetLvl = 3;
         }
 
@@ -29,21 +29,19 @@ public class Industrial extends Zone {
         } else if (targetLvl < level) {
             level--;
         }
-
-        lastProduction = calculateProduction();
     }
 
     @Override
     public int calculateProduction() {
-        int clcltPrdctn = Math.min(electricity, water);
+        int m = Math.min(electricity, water);
 
         switch (level) {
             case 1:
-                return clcltPrdctn;
+                return m;
             case 2:
-                return 2 * clcltPrdctn;
+                return 2 * m;
             case 3:
-                return 2 * clcltPrdctn + population;
+                return 2 * m + population;
             default:
                 return 0;
         }

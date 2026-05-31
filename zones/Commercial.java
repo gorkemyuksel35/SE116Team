@@ -20,7 +20,7 @@ public class Commercial extends Zone {
             targetLvl = 2;
         }
 
-        if (targetLvl == 2 && population > getDemand() && goods > getDemand()) {
+        if (targetLvl == 2 && population > 0 && goods > 0) {
             targetLvl = 3;
         }
 
@@ -29,21 +29,19 @@ public class Commercial extends Zone {
         } else if (targetLvl < level) {
             level--;
         }
-
-        lastProduction = calculateProduction();
     }
 
     @Override
     public int calculateProduction() {
-        int clcltPrdctn = Math.min(electricity, Math.min(water, internet));
+        int m = Math.min(electricity, Math.min(water, internet));
 
         switch (level) {
             case 1:
-                return clcltPrdctn;
+                return m;
             case 2:
-                return 2 * clcltPrdctn;
+                return 2 * m;
             case 3:
-                return 2 * clcltPrdctn + Math.min(population, goods);
+                return 2 * m + Math.min(population, goods); // 2m + min(population, goods) received
             default:
                 return 0;
         }
