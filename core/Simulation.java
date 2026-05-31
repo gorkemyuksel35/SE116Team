@@ -40,6 +40,7 @@ public class Simulation {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
+
                 if (cell instanceof Zone) {
                     ((Zone) cell).resetInputs();
                 }
@@ -51,6 +52,7 @@ public class Simulation {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
+
                 if (cell instanceof ServiceBuilding) {
                     ServiceDistribution.distribute(cityMap, (ServiceBuilding) cell);
                 }
@@ -62,6 +64,7 @@ public class Simulation {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
+
                 if (cell instanceof UtilityProvider) {
                     UtilityDistribution.distribute(cityMap, (UtilityProvider) cell);
                 }
@@ -77,30 +80,48 @@ public class Simulation {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
+
                 if (cell instanceof Zone) {
                     char symbol = cell.getSymbol();
-                    if (symbol == 'H') housingZones.add((Zone) cell);
-                    else if (symbol == 'I') industrialZones.add((Zone) cell);
-                    else if (symbol == 'C') commercialZones.add((Zone) cell);
+
+                    if (symbol == 'H') {
+                        housingZones.add((Zone) cell);
+                    } else if (symbol == 'I') {
+                        industrialZones.add((Zone) cell);
+                    } else if (symbol == 'C') {
+                        commercialZones.add((Zone) cell);
+                    }
                 }
             }
         }
 
         int totalJobZones = industrialZones.size() + commercialZones.size();
+
         if (totalJobZones > 0 && currentPooledPopulation > 0) {
             int share = currentPooledPopulation / totalJobZones;
-            for (Zone z : industrialZones) z.setPopulation(share);
-            for (Zone z : commercialZones) z.setPopulation(share);
+
+            for (Zone z : industrialZones) {
+                z.setPopulation(share);
+            }
+            for (Zone z : commercialZones) {
+                z.setPopulation(share);
+            }
         }
 
         if (!commercialZones.isEmpty() && currentPooledGoods > 0) {
             int share = currentPooledGoods / commercialZones.size();
-            for (Zone z : commercialZones) z.setGoods(share);
+
+            for (Zone z : commercialZones) {
+                z.setGoods(share);
+            }
         }
 
         if (!housingZones.isEmpty() && currentPooledLifestyle > 0) {
             int share = currentPooledLifestyle / housingZones.size();
-            for (Zone z : housingZones) z.setLifestyle(share);
+
+            for (Zone z : housingZones) {
+                z.setLifestyle(share);
+            }
         }
     }
 
@@ -123,15 +144,20 @@ public class Simulation {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
+
                 if (cell instanceof Zone) {
                     Zone zone = (Zone) cell;
                     int prod = zone.calculateProduction();
                     zone.setLastProduction(prod);
-
                     char symbol = zone.getSymbol();
-                    if (symbol == 'H') nextPopulation += prod;
-                    else if (symbol == 'I') nextGoods += prod;
-                    else if (symbol == 'C') nextLifestyle += prod;
+
+                    if (symbol == 'H') {
+                        nextPopulation += prod;
+                    } else if (symbol == 'I') {
+                        nextGoods += prod;
+                    } else if (symbol == 'C') {
+                        nextLifestyle += prod;
+                    }
                 }
             }
         }
@@ -141,15 +167,16 @@ public class Simulation {
         currentPooledLifestyle = nextLifestyle;
 
         System.out.println("\n=== PRODUCTION REPORT ===");
-        System.out.println("Population Pooled: " + currentPooledPopulation);
-        System.out.println("Goods Pooled: " + currentPooledGoods);
-        System.out.println("Lifestyle Pooled: " + currentPooledLifestyle);
+        System.out.println("Pooled Population: " + currentPooledPopulation);
+        System.out.println("Pooled Goods: " + currentPooledGoods);
+        System.out.println("Pooled Lifestyle: " + currentPooledLifestyle);
     }
 
     private void printZones() {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
+
                 if (cell instanceof Zone) {
                     System.out.print(cell + " ");
                 } else {
