@@ -8,9 +8,9 @@ public abstract class Zone extends Cell{                        // This class he
     protected int population;
     protected int goods;
     protected int lifestyle;
-    protected boolean security;
-    protected boolean health;
-    protected boolean education;
+    public boolean security;
+    public boolean health;
+    public boolean education;
     protected int lastProduction;
 
     public Zone(int x, int y, char symbol) {
@@ -54,6 +54,18 @@ public abstract class Zone extends Cell{                        // This class he
 
     public int getLevel() {
         return level;
+    }
+
+    public void setSecurity(boolean security) {
+        this.security = security;
+    }
+
+    public void setHealth(boolean health) {
+        this.health = health;
+    }
+
+    public void setEducation(boolean education) {
+        this.education = education;
     }
 
     public abstract void updateZone();
