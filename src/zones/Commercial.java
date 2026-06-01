@@ -9,14 +9,14 @@ public class Commercial extends Zone {
 
     @Override
     public void updateZone() {
-        if (electricity == 0 || water == 0 || internet == 0 || population == 0 || goods == 0) {
+        if (electricity == 0 || water == 0 || internet == 0) {
             level = 0;
             return;
         }
 
         int targetLvl = 1;
 
-        if (security) {
+        if (security && health && education) {
             targetLvl = 2;
         }
 
