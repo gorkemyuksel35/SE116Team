@@ -3,15 +3,18 @@ package core;
 import cells.Cell;
 import cells.Empty;
 
-public class CityMap {          // This class helps us for creating map. Also, it checks x and y. If they are invalid it throws exception.
+
+public class CityMap {
     protected Cell[][] grid;
     protected int rows;
     protected int cols;
 
     public CityMap(int rows, int cols) {
+        if (rows <= 0 || cols <= 0) {
+            throw new RuntimeException("Map dimensions must be positive!");
+        }
         this.rows = rows;
         this.cols = cols;
-
         grid = new Cell[rows][cols];
 
         for (int i = 0; i < rows; i++) {
@@ -24,7 +27,6 @@ public class CityMap {          // This class helps us for creating map. Also, i
     public int getRows() {
         return rows;
     }
-
     public int getCols() {
         return cols;
     }
@@ -35,17 +37,15 @@ public class CityMap {          // This class helps us for creating map. Also, i
 
     public void setCell(int x, int y, Cell cell) {
         if (!isValidPosition(x, y)) {
-            throw new RuntimeException("Invalid position!");
+            throw new RuntimeException("Invalid position: (" + x + ", " + y + ")");
         }
-
         grid[x][y] = cell;
     }
 
     public Cell getCell(int x, int y) {
         if (!isValidPosition(x, y)) {
-            throw new RuntimeException("Invalid position!");
+            throw new RuntimeException("Invalid position: (" + x + ", " + y + ")");
         }
-
         return grid[x][y];
     }
 

@@ -2,25 +2,25 @@ package zones;
 
 import cells.Zone;
 
-public class Industrial extends Zone {
-    public Industrial(int x, int y) {
-        super(x, y, 'I');
+public class Housing extends Zone {
+    public Housing(int x, int y) {
+        super(x, y, 'H');
     }
 
     @Override
     public void updateZone() {
-        if (electricity == 0 || water == 0 || population == 0) {
+        if (electricity == 0 || water == 0 || internet == 0) {
             level = 0;
             return;
         }
 
         int targetLvl = 1;
 
-        if (security) {
+        if (security && health && education) {
             targetLvl = 2;
         }
 
-        if (targetLvl == 2 && population > getDemand()) {
+        if (targetLvl == 2 && lifestyle > 0) {
             targetLvl = 3;
         }
 
@@ -30,20 +30,20 @@ public class Industrial extends Zone {
             level--;
         }
 
-        lastProduction = calculateProduction();
+        System.out.println(symbol + " (" + x + "," + y + ") updated to level " + level);
     }
 
     @Override
     public int calculateProduction() {
-        int clcltPrdctn = Math.min(electricity, water);
+        int m = Math.min(electricity, Math.min(water, internet));
 
         switch (level) {
             case 1:
-                return clcltPrdctn;
+                return m;
             case 2:
-                return 2 * clcltPrdctn;
+                return 2 * m;
             case 3:
-                return 2 * clcltPrdctn + population;
+                return 2 * m + lifestyle; // 2m + lifestyle received
             default:
                 return 0;
         }

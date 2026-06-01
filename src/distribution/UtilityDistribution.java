@@ -4,7 +4,7 @@ import cells.*;
 import core.*;
 import java.util.*;
 
-public class UtilityDistribution {
+public class UtilityDistribution {      //This class includes BFS. With BFS, we can move to every cell and check their datas.
     private static final int[] dx = {-1, 1, 0, 0};
     private static final int[] dy = {0, 0, -1, 1};
 

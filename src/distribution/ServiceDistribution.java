@@ -14,6 +14,7 @@ public class ServiceDistribution {
         int sy = serviceBuilding.getY();
         int radius = serviceBuilding.getRadius();
         char serviceSymbol = serviceBuilding.getSymbol();
+
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
@@ -30,16 +31,17 @@ public class ServiceDistribution {
             }
         }
     }
+
     private static void applyService(Zone zone, char serviceSymbol) {
         switch (serviceSymbol) {
             case 'F': // police station -> security
-                zone.security = true;
+                zone.setSecurity(true);
                 break;
             case 'D': // hospital -> health
-                zone.health = true;
+                zone.setHealth(true);
                 break;
             case 'S': // school -> education
-                zone.education = true;
+                zone.setEducation(true);
                 break;
         }
     }
