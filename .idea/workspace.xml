@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SE116Team:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="Now, the problem is fixed.">
+    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SE116Team_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cells/Zone.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/MapBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distribution/ServiceDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distribution/ServiceDistribution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/distribution/UtilityDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distribution/UtilityDistribution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zones/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Commercial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zones/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Housing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zones/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Industrial.java" afterDir="false" />
     </list>
     <list id="7a1f6b0a-39c5-4079-8061-2ebfddc809f8" name="Do not commit" comment="">
@@ -60,6 +71,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -70,11 +82,24 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="core.Main" />
+      <module name="SE116Team" />
+      <option name="PROGRAM_PARAMETERS" value="map_perfect.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -98,7 +123,10 @@
       <workItem from="1780222406188" duration="979000" />
       <workItem from="1780227291742" duration="2598000" />
       <workItem from="1780335085255" duration="846000" />
-      <workItem from="1780337247655" duration="1449000" />
+      <workItem from="1780337247655" duration="1538000" />
+      <workItem from="1780410091872" duration="1190000" />
+      <workItem from="1780411309920" duration="5979000" />
+      <workItem from="1780434616080" duration="355000" />
     </task>
     <task id="LOCAL-00001" summary="I wrote InternetHub.java, PowerPlant.java, UtilityProvider.java and WaterStation.java, and I tested them on my Main.java after that I saw they are working clearly.">
       <option name="closed" value="true" />
@@ -164,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780335608369</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage.">
+      <option name="closed" value="true" />
+      <created>1780338786033</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1780338786034</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +215,7 @@
     <MESSAGE value="I merged everything from GitHub and integrated them together. They worked clearly." />
     <MESSAGE value="I moved everything in src folder." />
     <MESSAGE value="Now, the problem is fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Now, the problem is fixed." />
+    <MESSAGE value="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage." />
+    <option name="LAST_COMMIT_MESSAGE" value="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage." />
   </component>
 </project>

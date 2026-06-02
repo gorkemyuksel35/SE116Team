@@ -4,7 +4,7 @@ import cells.*;
 import core.*;
 import java.util.*;
 
-public class UtilityDistribution {      //This class includes BFS. With BFS, we can move to every cell and check their datas.
+public class UtilityDistribution {
     private static final int[] dx = {-1, 1, 0, 0};
     private static final int[] dy = {0, 0, -1, 1};
 
@@ -28,12 +28,11 @@ public class UtilityDistribution {      //This class includes BFS. With BFS, we 
                 }
 
                 if (visited[newX][newY]) {
-                continue;
+                    continue;
                 }
 
                 Cell next = cityMap.getCell(newX, newY);
-
-                if (!next.isConnectable()) {
+                if (next == null || !next.isConnectable()) {
                     continue;
                 }
 
@@ -42,6 +41,7 @@ public class UtilityDistribution {      //This class includes BFS. With BFS, we 
 
                 if (next instanceof Zone) {
                     Zone zone = (Zone) next;
+
                     int demand = zone.getDemand();
                     int given = Math.min(demand, remaining);
 
@@ -55,6 +55,10 @@ public class UtilityDistribution {      //This class includes BFS. With BFS, we 
                         case "Internet":
                             zone.receiveInternet(given);
                             break;
+                    }
+
+                    if (zone.getElectricity() > 0 && zone.getWater() > 0 && zone.getInternet() > 0) {
+                        zone.setHasUtilities(true);
                     }
                     remaining -= given;
                 }
