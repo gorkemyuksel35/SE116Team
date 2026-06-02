@@ -9,15 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SE116Team_jar.xml" afterDir="false" />
+    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cells/Zone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/MapBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distribution/ServiceDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distribution/ServiceDistribution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distribution/UtilityDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distribution/UtilityDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/distribution/ResourceDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distribution/ResourceDistribution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zones/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Commercial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zones/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Housing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zones/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Industrial.java" afterDir="false" />
@@ -126,7 +121,7 @@
       <workItem from="1780337247655" duration="1538000" />
       <workItem from="1780410091872" duration="1190000" />
       <workItem from="1780411309920" duration="5979000" />
-      <workItem from="1780434616080" duration="355000" />
+      <workItem from="1780434616080" duration="1958000" />
     </task>
     <task id="LOCAL-00001" summary="I wrote InternetHub.java, PowerPlant.java, UtilityProvider.java and WaterStation.java, and I tested them on my Main.java after that I saw they are working clearly.">
       <option name="closed" value="true" />
@@ -200,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780338786034</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE.">
+      <option name="closed" value="true" />
+      <created>1780435041289</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1780435041289</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +219,7 @@
     <MESSAGE value="I moved everything in src folder." />
     <MESSAGE value="Now, the problem is fixed." />
     <MESSAGE value="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage." />
-    <option name="LAST_COMMIT_MESSAGE" value="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage." />
+    <MESSAGE value="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE." />
+    <option name="LAST_COMMIT_MESSAGE" value="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE." />
   </component>
 </project>

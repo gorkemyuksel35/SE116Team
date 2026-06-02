@@ -1,76 +1,69 @@
 package distribution;
 
-import cells.Cell;
-import cells.Zone;
-import core.CityMap;
-import zones.Housing;
-import zones.Industrial;
-import zones.Commercial;
-
+import cells.*;
+import core.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ResourceDistribution {
-    public static void distribute(CityMap cityMap) {
-        List<Housing>    houses      = new ArrayList<>();
-        List<Industrial> industrials = new ArrayList<>();
-        List<Commercial> commercials = new ArrayList<>();
-        // adding the zones
+    public static void distribute(CityMap cityMap, Simulation simulation) {
+        List<Zone> housingZones    = new ArrayList<>();
+        List<Zone> industrialZones = new ArrayList<>();
+        List<Zone> commercialZones = new ArrayList<>();
+
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
-                if (cell instanceof Housing)    houses.add((Housing) cell);
-                else if (cell instanceof Industrial) industrials.add((Industrial) cell);
-                else if (cell instanceof Commercial) commercials.add((Commercial) cell);
+
+                if (cell instanceof Zone) {
+                    Zone zone = (Zone) cell;
+                    char symbol = zone.getSymbol();
+
+                    if (symbol == 'H') {
+                        housingZones.add(zone);
+                    } else if (symbol == 'I') {
+                        industrialZones.add(zone);
+                    } else if (symbol == 'C') {
+                        commercialZones.add(zone);
+                    }
+                }
             }
         }
-        // the summation of the lastProduction for all of the housings
-        int totalPopulation = 0;
-        for (Housing h : houses) {
-            totalPopulation += h.lastProduction;
-        }
 
-        // dividing for each of the industrial and commercials
-        int indComCount = industrials.size() + commercials.size();
+        int totalPopulation = simulation.getCurrentPooledPopulation();
+        int indComCount = industrialZones.size() + commercialZones.size();
+
         if (indComCount > 0 && totalPopulation > 0) {
-            int popPerZone = totalPopulation / indComCount; // tamsayi bolmesi
-            for (Industrial ind : industrials) {
-                ind.population += popPerZone;
-            }
-            for (Commercial com : commercials) {
-                com.population += popPerZone;
-            }
+            int popPerZone = totalPopulation / indComCount;
+            int remainder = totalPopulation % indComCount;
+
+            for (Zone ind : industrialZones) ind.setPopulation(ind.getPopulation() + popPerZone);
+            for (Zone com : commercialZones) com.setPopulation(com.getPopulation() + popPerZone);
+            simulation.setCurrentPooledPopulation(remainder);
+        } else {
+            simulation.setCurrentPooledPopulation(indComCount == 0 ? totalPopulation : 0);
         }
 
-        //summation of the last Productions for all Industrials
-        int totalGoods = 0;
-        for (Industrial ind : industrials) {
-            totalGoods += ind.lastProduction;
+        int totalGoods = simulation.getCurrentPooledGoods();
+        if (!commercialZones.isEmpty() && totalGoods > 0) {
+            int goodsPerCom = totalGoods / commercialZones.size();
+            int remainder = totalGoods % commercialZones.size();
+
+            for (Zone com : commercialZones) com.setGoods(com.getGoods() + goodsPerCom);
+            simulation.setCurrentPooledGoods(remainder);
+        } else {
+            simulation.setCurrentPooledGoods(commercialZones.isEmpty() ? totalGoods : 0);
         }
 
-        // dividing for each commercial
-        if (!commercials.isEmpty() && totalGoods > 0) {
-            int goodsPerCom = totalGoods / commercials.size(); // tamsayi bolmesi
-            for (Commercial com : commercials) {
-                com.goods += goodsPerCom;
-            }
-        }
+        int totalLifestyle = simulation.getCurrentPooledLifestyle();
+        if (!housingZones.isEmpty() && totalLifestyle > 0) {
+            int lifestylePerHouse = totalLifestyle / housingZones.size();
+            int remainder = totalLifestyle % housingZones.size();
 
-        //summation of the last Productions for all Commercials
-        int totalLifestyle = 0;
-        for (Commercial com : commercials) {
-            totalLifestyle += com.lastProduction;
-        }
-
-        // dividing equally for each housing
-        if (!houses.isEmpty() && totalLifestyle > 0) {
-            int lifestylePerHouse = totalLifestyle / houses.size(); // tamsayi bolmesi
-            for (Housing h : houses) {
-                h.lifestyle += lifestylePerHouse;
-            }
+            for (Zone h : housingZones) h.setLifestyle(h.getLifestyle() + lifestylePerHouse);
+            simulation.setCurrentPooledLifestyle(remainder);
+        } else {
+            simulation.setCurrentPooledLifestyle(housingZones.isEmpty() ? totalLifestyle : 0);
         }
     }
 }
-
-
-
