@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="Final">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/MapBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distribution/ServiceDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distribution/ServiceDistribution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distribution/UtilityDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distribution/UtilityDistribution.java" afterDir="false" />
+    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="We found new issues after final check so we fixed them.">
       <change beforePath="$PROJECT_DIR$/src/zones/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Commercial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zones/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Housing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/zones/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Industrial.java" afterDir="false" />
@@ -125,7 +120,7 @@
       <workItem from="1780410091872" duration="1190000" />
       <workItem from="1780411309920" duration="5979000" />
       <workItem from="1780434616080" duration="1988000" />
-      <workItem from="1780477285131" duration="12375000" />
+      <workItem from="1780477285131" duration="12680000" />
     </task>
     <task id="LOCAL-00001" summary="I wrote InternetHub.java, PowerPlant.java, UtilityProvider.java and WaterStation.java, and I tested them on my Main.java after that I saw they are working clearly.">
       <option name="closed" value="true" />
@@ -215,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780436608367</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="We found new issues after final check so we fixed them.">
+      <option name="closed" value="true" />
+      <created>1780493275438</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1780493275438</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +247,7 @@
     <MESSAGE value="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage." />
     <MESSAGE value="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE." />
     <MESSAGE value="Final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final" />
+    <MESSAGE value="We found new issues after final check so we fixed them." />
+    <option name="LAST_COMMIT_MESSAGE" value="We found new issues after final check so we fixed them." />
   </component>
 </project>
