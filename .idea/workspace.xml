@@ -1,32 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SE116Team:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0636483e-e6f0-45b7-b6cc-279d6e26494b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="We found new issues after final check so we fixed them.">
+      <change beforePath="$PROJECT_DIR$/src/zones/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Commercial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zones/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Housing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zones/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Industrial.java" afterDir="false" />
+    </list>
+    <list id="7a1f6b0a-39c5-4079-8061-2ebfddc809f8" name="Do not commit" comment="">
       <change beforePath="$PROJECT_DIR$/exceptions/SE116ConfigurationException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/MapBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gorkemyuksel35&quot;
+  }
 }</component>
-  <component name="ProjectId" id="3EGFN91mc2K4bBfjzp8XtwClDhw" />
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gorkemyuksel35/SE116Team.git&quot;,
+    &quot;accountId&quot;: &quot;4327529a-93b0-49fd-836a-e5713f404442&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3E8IJktWRKlzQ1mh8wJlJb0OvLr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,41 +65,189 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/duyguaydin/IdeaProjects/SE116PROJECT/SE116Team/SE116Team",
-    "onboarding.tips.debug.path": "/Users/duyguaydin/IdeaProjects/SE116PROJECT/SE116Team/SE116Team/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="core.Main" />
+      <module name="SE116Team" />
+      <option name="PROGRAM_PARAMETERS" value="map_perfect.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0636483e-e6f0-45b7-b6cc-279d6e26494b" name="Changes" comment="" />
-      <created>1779796956678</created>
+      <changelist id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="" />
+      <changelist id="7a1f6b0a-39c5-4079-8061-2ebfddc809f8" name="Do not commit" comment="" />
+      <created>1779553699216</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1779796956678</updated>
+      <updated>1779553699216</updated>
+      <workItem from="1779553700526" duration="2074000" />
+      <workItem from="1779614799309" duration="4323000" />
+      <workItem from="1779806551895" duration="3481000" />
+      <workItem from="1779898350027" duration="2563000" />
+      <workItem from="1780222406188" duration="979000" />
+      <workItem from="1780227291742" duration="2598000" />
+      <workItem from="1780335085255" duration="846000" />
+      <workItem from="1780337247655" duration="1538000" />
+      <workItem from="1780410091872" duration="1190000" />
+      <workItem from="1780411309920" duration="5979000" />
+      <workItem from="1780434616080" duration="1988000" />
+      <workItem from="1780477285131" duration="12680000" />
     </task>
+    <task id="LOCAL-00001" summary="I wrote InternetHub.java, PowerPlant.java, UtilityProvider.java and WaterStation.java, and I tested them on my Main.java after that I saw they are working clearly.">
+      <option name="closed" value="true" />
+      <created>1779557552788</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779557552788</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Today, I developed my project with zones and services. I wrote codes and tested them, so everything is working completely true.">
+      <option name="closed" value="true" />
+      <created>1779619753854</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779619753854</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Today, I did some changes on my Main.java, CityMap.java and wrote Simulation.java.">
+      <option name="closed" value="true" />
+      <created>1779810909693</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779810909693</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Today, I wrote UtilityDistribution.java for distribute utilities to our map.">
+      <option name="closed" value="true" />
+      <created>1779900377600</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1779900377600</updated>
+    </task>
+    <task id="LOCAL-00005" summary="This is a bugged class.">
+      <option name="closed" value="true" />
+      <created>1780222790295</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1780222790295</updated>
+    </task>
+    <task id="LOCAL-00006" summary="I merged everything from GitHub and integrated them together. They worked clearly.">
+      <option name="closed" value="true" />
+      <created>1780225950890</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1780225950890</updated>
+    </task>
+    <task id="LOCAL-00007" summary="I moved everything in src folder.">
+      <option name="closed" value="true" />
+      <created>1780335389809</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1780335389809</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Now, the problem is fixed.">
+      <option name="closed" value="true" />
+      <created>1780335608369</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1780335608369</updated>
+    </task>
+    <task id="LOCAL-00009" summary="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage.">
+      <option name="closed" value="true" />
+      <created>1780338786033</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1780338786034</updated>
+    </task>
+    <task id="LOCAL-00010" summary="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE.">
+      <option name="closed" value="true" />
+      <created>1780435041289</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1780435041289</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Final">
+      <option name="closed" value="true" />
+      <created>1780436608367</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1780436608367</updated>
+    </task>
+    <task id="LOCAL-00012" summary="We found new issues after final check so we fixed them.">
+      <option name="closed" value="true" />
+      <created>1780493275438</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1780493275438</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="I wrote InternetHub.java, PowerPlant.java, UtilityProvider.java and WaterStation.java, and I tested them on my Main.java after that I saw they are working clearly." />
+    <MESSAGE value="Today, I developed my project with zones and services. I wrote codes and tested them, so everything is working completely true." />
+    <MESSAGE value="Today, I did some changes on my Main.java, CityMap.java and wrote Simulation.java." />
+    <MESSAGE value="Today, I wrote UtilityDistribution.java for distribute utilities to our map." />
+    <MESSAGE value="This is a bugged class." />
+    <MESSAGE value="I merged everything from GitHub and integrated them together. They worked clearly." />
+    <MESSAGE value="I moved everything in src folder." />
+    <MESSAGE value="Now, the problem is fixed." />
+    <MESSAGE value="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage." />
+    <MESSAGE value="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE." />
+    <MESSAGE value="Final" />
+    <MESSAGE value="We found new issues after final check so we fixed them." />
+    <option name="LAST_COMMIT_MESSAGE" value="We found new issues after final check so we fixed them." />
   </component>
 </project>

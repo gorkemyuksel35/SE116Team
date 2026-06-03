@@ -1,31 +1,45 @@
 package core;
 
-import cells.*;
-import zones.*;
+import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        CityMap testCMv2 = new CityMap(6, 6);
-        for (int i = 0; i < 6; i++) {
-            testCMv2.setCell(i, 1, new Road(i, 1));
-            testCMv2.setCell(i, 3, new Road(i, 3));
+        System.out.println("=== CENGGANG OBJECTVILLE ===");
+        if (args.length < 2) {
+            throw new IllegalArgumentException("Missing command-line arguments!");
         }
 
-        testCMv2.setCell(2, 2, new Road(2, 2));
-        testCMv2.setCell(3, 2, new Road(3, 2));
-        testCMv2.setCell(0, 1, new PowerPlant(0, 1));
-        testCMv2.setCell(5, 1, new WaterStation(5, 1));
-        testCMv2.setCell(0, 3, new InternetHub(0, 3));
-        testCMv2.setCell(1, 2, new PoliceStation(1, 2));
-        testCMv2.setCell(4, 2, new Hospital(4, 2));
-        testCMv2.setCell(5, 2, new School(5, 2));
-        testCMv2.setCell(1, 0, new Housing(1, 0));
-        testCMv2.setCell(2, 0, new Housing(2, 0));
-        testCMv2.setCell(3, 0, new Housing(3, 0));
-        testCMv2.setCell(4, 0, new Housing(4, 0));
-        testCMv2.setCell(2, 4, new Industrial(2, 4));
-        testCMv2.setCell(4, 4, new Commercial(4, 4));
-        Simulation simulation = new Simulation(testCMv2, 15);
+        String filePath = args[0];
+        String tickInput = args[1];
+
+        File mapFile = new File(filePath);
+
+        if (!mapFile.exists()) {
+            throw new RuntimeException("Target map file could not be found!");
+        }
+
+        int maxTicks;
+        try {
+            maxTicks = Integer.parseInt(tickInput);
+            if (maxTicks <= 0) {
+                throw new IllegalArgumentException("Simulation tick count must be a positive integer!");
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid tick format provided in terminal! Expected integer!");
+        }
+
+        System.out.println("Executing Map Engine for: " + mapFile.getName());
+        CityMap cityMap = null;
+
+        try {
+            cityMap = MapBuilder.buildFromFile(filePath);
+            System.out.println("Map structural verification successfully completed!");
+
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Map parsing failed! Reason: " + e.getMessage(), e);
+        }
+
+        Simulation simulation = new Simulation(cityMap, maxTicks);
         simulation.run();
     }
 }

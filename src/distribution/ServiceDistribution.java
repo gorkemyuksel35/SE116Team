@@ -1,12 +1,7 @@
 package distribution;
 
-import cells.ServiceBuilding;
-import cells.Cell;
-import cells.Zone;
-import core.CityMap;
-import zones.Housing;
-import zones.Industrial;
-import zones.Commercial;
+import cells.*;
+import core.*;
 
 public class ServiceDistribution {
     public static void distribute(CityMap cityMap, ServiceBuilding serviceBuilding) {
@@ -19,32 +14,45 @@ public class ServiceDistribution {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
 
-                if (!(cell instanceof Zone)) {
-                    continue;
-                }
-                double distance = Math.sqrt(Math.pow(i - sx, 2) + Math.pow(j - sy, 2));
+                if (cell instanceof Zone) {
+                    double distance = Math.sqrt(Math.pow(i - sx, 2) + Math.pow(j - sy, 2));
 
-                if (distance <= radius) {
-                    Zone zone = (Zone) cell;
-                    applyService(zone, serviceSymbol);
+                    if (distance <= radius) {
+                        applyService(cell, serviceSymbol, i, j);
+                    }
                 }
             }
         }
     }
 
-    private static void applyService(Zone zone, char serviceSymbol) {
-        switch (serviceSymbol) {
-            case 'F': // police station -> security
-                zone.setSecurity(true);
-                break;
-            case 'D': // hospital -> health
-                zone.setHealth(true);
-                break;
-            case 'S': // school -> education
-                zone.setEducation(true);
-                break;
+    private static void applyService(Object zoneObj, char serviceSymbol, int x, int y) {
+        if (zoneObj instanceof Zone) {
+            Zone zone = (Zone) zoneObj;
+            String typeName = zone.getClass().getSimpleName();
+            if (typeName.equals("Housing")) {
+                typeName = "House";
+            }
+
+            switch (serviceSymbol) {
+                case 'F':
+                    if (!zone.isHasSecurity()) {
+                        zone.setHasSecurity(true);
+                        System.out.println(typeName + " at (" + x + "," + y + ") received security service");
+                    }
+                    break;
+                case 'D':
+                    if (!zone.isHasHealth()) {
+                        zone.setHasHealth(true);
+                        System.out.println(typeName + " at (" + x + "," + y + ") received health service");
+                    }
+                    break;
+                case 'S':
+                    if (!zone.isHasEducation()) {
+                        zone.setHasEducation(true);
+                        System.out.println(typeName + " at (" + x + "," + y + ") received education service");
+                    }
+                    break;
+            }
         }
     }
 }
-
-

@@ -1,76 +1,107 @@
 package distribution;
 
-import cells.Cell;
-import cells.Zone;
-import core.CityMap;
-import zones.Housing;
-import zones.Industrial;
-import zones.Commercial;
-
-import java.util.ArrayList;
-import java.util.List;
+import cells.*;
+import core.*;
+import java.util.*;
 
 public class ResourceDistribution {
-    public static void distribute(CityMap cityMap) {
-        List<Housing>    houses      = new ArrayList<>();
-        List<Industrial> industrials = new ArrayList<>();
-        List<Commercial> commercials = new ArrayList<>();
-        // adding the zones
+    public static void distribute(CityMap cityMap, Simulation simulation) {
+        List<Zone> housingZones    = new ArrayList<>();
+        List<Zone> industrialZones = new ArrayList<>();
+        List<Zone> commercialZones = new ArrayList<>();
+
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
-                if (cell instanceof Housing)    houses.add((Housing) cell);
-                else if (cell instanceof Industrial) industrials.add((Industrial) cell);
-                else if (cell instanceof Commercial) commercials.add((Commercial) cell);
+                if (cell instanceof Zone) {
+                    char symbol = cell.getSymbol();
+                    if (symbol == 'H') {
+                        housingZones.add((Zone) cell);
+                    } else if (symbol == 'I') {
+                        industrialZones.add((Zone) cell);
+                    } else if (symbol == 'C') {
+                        commercialZones.add((Zone) cell);
+                    }
+                }
             }
         }
-        // the summation of the lastProduction for all of the housings
-        int totalPopulation = 0;
-        for (Housing h : houses) {
-            totalPopulation += h.lastProduction;
-        }
 
-        // dividing for each of the industrial and commercials
-        int indComCount = industrials.size() + commercials.size();
+        int totalPopulation = simulation.getCurrentPooledPopulation();
+        int indComCount = industrialZones.size() + commercialZones.size();
+
         if (indComCount > 0 && totalPopulation > 0) {
-            int popPerZone = totalPopulation / indComCount; // tamsayi bolmesi
-            for (Industrial ind : industrials) {
-                ind.population += popPerZone;
+            int baseShare = totalPopulation / indComCount;
+            int remainder = totalPopulation % indComCount;
+
+            for (Zone ind : industrialZones) {
+                ind.setPopulation(baseShare);
             }
-            for (Commercial com : commercials) {
-                com.population += popPerZone;
+            for (Zone com : commercialZones) {
+                com.setPopulation(baseShare);
+            }
+
+            for (Zone ind : industrialZones) {
+                if (remainder > 0) {
+                    ind.setPopulation(ind.getPopulation() + 1); remainder--;
+                }
+            }
+            for (Zone com : commercialZones) {
+                if (remainder > 0) {
+                    com.setPopulation(com.getPopulation() + 1); remainder--;
+                }
+            }
+            simulation.setCurrentPooledPopulation(remainder);
+        }
+
+        int totalGoods = simulation.getCurrentPooledGoods();
+        if (!commercialZones.isEmpty() && totalGoods > 0) {
+            int baseShare = totalGoods / commercialZones.size();
+            int remainder = totalGoods % commercialZones.size();
+
+            for (Zone com : commercialZones) {
+                com.setGoods(baseShare);
+            }
+            for (Zone com : commercialZones) {
+                if (remainder > 0) {
+                    com.setGoods(com.getGoods() + 1); remainder--;
+                }
+            }
+            simulation.setCurrentPooledGoods(remainder);
+        }
+
+        int totalLifestyle = simulation.getCurrentPooledLifestyle();
+        if (!housingZones.isEmpty() && totalLifestyle > 0) {
+            int baseShare = totalLifestyle / housingZones.size();
+            int remainder = totalLifestyle % housingZones.size();
+
+            for (Zone h : housingZones) {
+                h.setLifestyle(baseShare);
+            }
+            for (Zone h : housingZones) {
+                if (remainder > 0) {
+                    h.setLifestyle(h.getLifestyle() + 1); remainder--;
+                }
+            }
+            simulation.setCurrentPooledLifestyle(remainder);
+        }
+
+        for (Zone ind : industrialZones) {
+            if (ind.getPopulation() > 0) {
+                System.out.println("Industrial at (" + ind.getX() + "," + ind.getY() + ") received " + ind.getPopulation() + " population");
             }
         }
-
-        //summation of the last Productions for all Industrials
-        int totalGoods = 0;
-        for (Industrial ind : industrials) {
-            totalGoods += ind.lastProduction;
-        }
-
-        // dividing for each commercial
-        if (!commercials.isEmpty() && totalGoods > 0) {
-            int goodsPerCom = totalGoods / commercials.size(); // tamsayi bolmesi
-            for (Commercial com : commercials) {
-                com.goods += goodsPerCom;
+        for (Zone com : commercialZones) {
+            if (com.getPopulation() > 0) {
+                System.out.println("Commercial at (" + com.getX() + "," + com.getY() + ") received " + com.getPopulation() + " population");
+            }
+            if (com.getGoods() > 0) {
+                System.out.println("Commercial at (" + com.getX() + "," + com.getY() + ") received " + com.getGoods() + " goods");
             }
         }
-
-        //summation of the last Productions for all Commercials
-        int totalLifestyle = 0;
-        for (Commercial com : commercials) {
-            totalLifestyle += com.lastProduction;
-        }
-
-        // dividing equally for each housing
-        if (!houses.isEmpty() && totalLifestyle > 0) {
-            int lifestylePerHouse = totalLifestyle / houses.size(); // tamsayi bolmesi
-            for (Housing h : houses) {
-                h.lifestyle += lifestylePerHouse;
+        for (Zone h : housingZones) {
+            if (h.getLifestyle() > 0) {
+                System.out.println("House at (" + h.getX() + "," + h.getY() + ") received " + h.getLifestyle() + " lifestyle");
             }
         }
     }
 }
-
-
-
