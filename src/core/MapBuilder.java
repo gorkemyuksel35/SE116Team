@@ -13,6 +13,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapBuilder {
+
+    public static CityMap buildFromFile(String filePath) {
+        List<String> lines = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.isEmpty()) {
+                    lines.add(line);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Couldn't read the file: " + filePath + e.getMessage());
+        }
+
+        if (lines.isEmpty()) {
+            throw new RuntimeException("File is empty: " + filePath);
         }
 
         int rows = lines.size();
