@@ -7,7 +7,6 @@ import zones.Industrial;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.RunTimeException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,11 +70,11 @@ public class MapBuilder {
             case 'T':
                 return new InternetHub(x, y);
             case 'F':
-                return new PoliceStation(x, y, 5);
+                return new PoliceStation(x, y);
             case 'D':
-                return new Hospital(x, y, 3);
+                return new Hospital(x, y);
             case 'S':
-                return new School(x, y, 4);
+                return new School(x, y);
             case 'R':
                 return new Road(x, y);
             case 'E':
