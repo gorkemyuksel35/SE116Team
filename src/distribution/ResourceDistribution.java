@@ -2,8 +2,7 @@ package distribution;
 
 import cells.*;
 import core.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ResourceDistribution {
     public static void distribute(CityMap cityMap, Simulation simulation) {
@@ -14,17 +13,14 @@ public class ResourceDistribution {
         for (int i = 0; i < cityMap.getRows(); i++) {
             for (int j = 0; j < cityMap.getCols(); j++) {
                 Cell cell = cityMap.getCell(i, j);
-
                 if (cell instanceof Zone) {
-                    Zone zone = (Zone) cell;
-                    char symbol = zone.getSymbol();
-
+                    char symbol = cell.getSymbol();
                     if (symbol == 'H') {
-                        housingZones.add(zone);
+                        housingZones.add((Zone) cell);
                     } else if (symbol == 'I') {
-                        industrialZones.add(zone);
+                        industrialZones.add((Zone) cell);
                     } else if (symbol == 'C') {
-                        commercialZones.add(zone);
+                        commercialZones.add((Zone) cell);
                     }
                 }
             }
@@ -34,36 +30,78 @@ public class ResourceDistribution {
         int indComCount = industrialZones.size() + commercialZones.size();
 
         if (indComCount > 0 && totalPopulation > 0) {
-            int popPerZone = totalPopulation / indComCount;
+            int baseShare = totalPopulation / indComCount;
             int remainder = totalPopulation % indComCount;
 
-            for (Zone ind : industrialZones) ind.setPopulation(ind.getPopulation() + popPerZone);
-            for (Zone com : commercialZones) com.setPopulation(com.getPopulation() + popPerZone);
+            for (Zone ind : industrialZones) {
+                ind.setPopulation(baseShare);
+            }
+            for (Zone com : commercialZones) {
+                com.setPopulation(baseShare);
+            }
+
+            for (Zone ind : industrialZones) {
+                if (remainder > 0) {
+                    ind.setPopulation(ind.getPopulation() + 1); remainder--;
+                }
+            }
+            for (Zone com : commercialZones) {
+                if (remainder > 0) {
+                    com.setPopulation(com.getPopulation() + 1); remainder--;
+                }
+            }
             simulation.setCurrentPooledPopulation(remainder);
-        } else {
-            simulation.setCurrentPooledPopulation(indComCount == 0 ? totalPopulation : 0);
         }
 
         int totalGoods = simulation.getCurrentPooledGoods();
         if (!commercialZones.isEmpty() && totalGoods > 0) {
-            int goodsPerCom = totalGoods / commercialZones.size();
+            int baseShare = totalGoods / commercialZones.size();
             int remainder = totalGoods % commercialZones.size();
 
-            for (Zone com : commercialZones) com.setGoods(com.getGoods() + goodsPerCom);
+            for (Zone com : commercialZones) {
+                com.setGoods(baseShare);
+            }
+            for (Zone com : commercialZones) {
+                if (remainder > 0) {
+                    com.setGoods(com.getGoods() + 1); remainder--;
+                }
+            }
             simulation.setCurrentPooledGoods(remainder);
-        } else {
-            simulation.setCurrentPooledGoods(commercialZones.isEmpty() ? totalGoods : 0);
         }
 
         int totalLifestyle = simulation.getCurrentPooledLifestyle();
         if (!housingZones.isEmpty() && totalLifestyle > 0) {
-            int lifestylePerHouse = totalLifestyle / housingZones.size();
+            int baseShare = totalLifestyle / housingZones.size();
             int remainder = totalLifestyle % housingZones.size();
 
-            for (Zone h : housingZones) h.setLifestyle(h.getLifestyle() + lifestylePerHouse);
+            for (Zone h : housingZones) {
+                h.setLifestyle(baseShare);
+            }
+            for (Zone h : housingZones) {
+                if (remainder > 0) {
+                    h.setLifestyle(h.getLifestyle() + 1); remainder--;
+                }
+            }
             simulation.setCurrentPooledLifestyle(remainder);
-        } else {
-            simulation.setCurrentPooledLifestyle(housingZones.isEmpty() ? totalLifestyle : 0);
+        }
+
+        for (Zone ind : industrialZones) {
+            if (ind.getPopulation() > 0) {
+                System.out.println("Industrial at (" + ind.getX() + "," + ind.getY() + ") received " + ind.getPopulation() + " population");
+            }
+        }
+        for (Zone com : commercialZones) {
+            if (com.getPopulation() > 0) {
+                System.out.println("Commercial at (" + com.getX() + "," + com.getY() + ") received " + com.getPopulation() + " population");
+            }
+            if (com.getGoods() > 0) {
+                System.out.println("Commercial at (" + com.getX() + "," + com.getY() + ") received " + com.getGoods() + " goods");
+            }
+        }
+        for (Zone h : housingZones) {
+            if (h.getLifestyle() > 0) {
+                System.out.println("House at (" + h.getX() + "," + h.getY() + ") received " + h.getLifestyle() + " lifestyle");
+            }
         }
     }
 }
