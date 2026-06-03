@@ -1,58 +1,58 @@
 package core;
 
 import cells.*;
-import zones.Commercial;
-import zones.Housing;
-import zones.Industrial;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MapBuilder {
 
     public static CityMap buildFromFile(String filePath) {
-        List<String> lines = new ArrayList<>();
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(filePath));
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (!line.isEmpty()) {
-                    lines.add(line);
+            String firstLine = reader.readLine();
+            if (firstLine == null) {
+                throw new RuntimeException("Map File is empty: " + filePath);
+            }
+
+            String[] dimensions = firstLine.trim().split("\\s+");
+            int rows = Integer.parseInt(dimensions[0]);
+            int cols = Integer.parseInt(dimensions[1]);
+
+            CityMap cityMap = new CityMap(rows, cols);
+
+            for (int i = 0; i < rows; i++) {
+                String line = reader.readLine();
+                if (line == null) {
+                    throw new RuntimeException("Map File has missing rows at line: " + i);
+                }
+
+                String[] tokens = line.trim().split("\\s+");
+
+                if (tokens.length != cols) {
+                    throw new RuntimeException("In Map File " + i + ". line token count is inconsistent. " + "Expected: " + cols + ", Found: " + tokens.length);
+                }
+
+                for (int j = 0; j < cols; j++) {
+                    char symbol = tokens[j].charAt(0);
+                    Cell cell = createCell(symbol, i, j);
+                    cityMap.setCell(i, j, cell);
                 }
             }
+            return cityMap;
+
         } catch (IOException e) {
-            throw new RuntimeException("Couldn't read the file: " + filePath + e.getMessage());
-        }
-
-        if (lines.isEmpty()) {
-            throw new RuntimeException("File is empty: " + filePath);
-        }
-
-        int rows = lines.size();
-        int cols = lines.get(0).length();
-
-        for (int i = 0; i < rows; i++) {
-            if (lines.get(i).length() != cols) {
-                throw new RuntimeException(
-                        "   The line " + i + "is not consistent with the word count of other lines  "
-                                + "Expected: " + cols + ", Founded: " + lines.get(i).length());
+            throw new RuntimeException("Map File didn't read: " + filePath + " -> " + e.getMessage());
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException ignored) {
+                }
             }
         }
-        CityMap cityMap = new CityMap(rows, cols);
-
-        for (int i = 0; i < rows; i++) {
-            String row = lines.get(i);
-            for (int j = 0; j < cols; j++) {
-                char symbol = row.charAt(j);
-                Cell cell = createCell(symbol, i, j);
-                cityMap.setCell(i, j, cell);
-            }
-        }
-
-        return cityMap;
     }
 
     private static Cell createCell(char symbol, int x, int y) {
@@ -80,10 +80,7 @@ public class MapBuilder {
             case 'E':
                 return new Empty(x, y);
             default:
-                throw new RuntimeException(
-                        "Invalid cell symbol: " + symbol
-                                + " Coordinates: (" + x + ", " + y + ")"
-                );
+                throw new RuntimeException("Invalid Cell: '" + symbol + "' Coordinates: (" + x + ", " + y + ")");
         }
     }
 }
