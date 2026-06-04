@@ -1,42 +1,46 @@
 package core;
 
 import cells.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.*;
 
 public class MapBuilder {
 
     public static CityMap buildFromFile(String filePath) {
         BufferedReader reader = null;
+        List<String> lines = new ArrayList<>();
+
         try {
             reader = new BufferedReader(new FileReader(filePath));
+            String line;
 
-            String firstLine = reader.readLine();
-            if (firstLine == null) {
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (!line.isEmpty()) {
+                    lines.add(line);
+                }
+            }
+
+            if (lines.isEmpty()) {
                 throw new RuntimeException("Map File is empty: " + filePath);
             }
 
-            String[] dimensions = firstLine.trim().split("\\s+");
-            int rows = Integer.parseInt(dimensions[0]);
-            int cols = Integer.parseInt(dimensions[1]);
+            int rows = lines.size();
+            int cols = lines.get(0).length();
+
+            System.out.println("Dynamically discovered map size: " + rows + " Rows x " + cols + " Columns.");
 
             CityMap cityMap = new CityMap(rows, cols);
 
             for (int i = 0; i < rows; i++) {
-                String line = reader.readLine();
-                if (line == null) {
-                    throw new RuntimeException("Map File has missing rows at line: " + i);
-                }
+                String currentLine = lines.get(i);
 
-                String[] tokens = line.trim().split("\\s+");
-
-                if (tokens.length != cols) {
-                    throw new RuntimeException("In Map File " + i + ". line token count is inconsistent. " + "Expected: " + cols + ", Found: " + tokens.length);
+                if (currentLine.length() != cols) {
+                    throw new RuntimeException("Inconsistent column count at row " + i + ". Expected: " + cols + ", Found: " + currentLine.length());
                 }
 
                 for (int j = 0; j < cols; j++) {
-                    char symbol = tokens[j].charAt(0);
+                    char symbol = currentLine.charAt(j);
                     Cell cell = createCell(symbol, i, j);
                     cityMap.setCell(i, j, cell);
                 }

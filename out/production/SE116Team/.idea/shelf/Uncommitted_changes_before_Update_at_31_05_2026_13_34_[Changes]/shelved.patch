@@ -1,0 +1,289 @@
+Index: Main.java
+===================================================================
+diff --git a/Main.java b/Main.java
+deleted file mode 100644
+--- a/Main.java	(revision 2e0f5d031b490b1d8153a34b96d68bcaf0cf8f44)
++++ /dev/null	(revision 2e0f5d031b490b1d8153a34b96d68bcaf0cf8f44)
+@@ -1,13 +0,0 @@
+-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+-void main() {
+-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+-    // to see how IntelliJ IDEA suggests fixing it.
+-    IO.println(String.format("Hello and welcome!"));
+-
+-    for (int i = 1; i <= 5; i++) {
+-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
+-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
+-        IO.println("i = " + i);
+-    }
+-}
+Index: .idea/material_theme_project_new.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/material_theme_project_new.xml b/.idea/material_theme_project_new.xml
+new file mode 100644
+--- /dev/null	(date 1780223643687)
++++ b/.idea/material_theme_project_new.xml	(date 1780223643687)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="MaterialThemeProjectNewConfig">
++    <option name="metadata">
++      <MTProjectMetadataState>
++        <option name="migrated" value="true" />
++        <option name="pristineConfig" value="false" />
++        <option name="userId" value="3d755c8b:19a50c3af04:-7ffe" />
++      </MTProjectMetadataState>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/SE116Team.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\r\n    <exclude-output />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/SE116Team.iml b/.idea/SE116Team.iml
+--- a/.idea/SE116Team.iml	(revision 2e0f5d031b490b1d8153a34b96d68bcaf0cf8f44)
++++ b/.idea/SE116Team.iml	(date 1780221346190)
+@@ -3,6 +3,7 @@
+   <component name="NewModuleRootManager" inherit-compiler-output="true">
+     <exclude-output />
+     <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+     </content>
+     <orderEntry type="inheritedJdk" />
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0636483e-e6f0-45b7-b6cc-279d6e26494b\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"QODANA_PROBLEMS_VIEW_TAB\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 1\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"3EGFN91mc2K4bBfjzp8XtwClDhw\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"/Users/duyguaydin/IdeaProjects/SE116PROJECT/SE116Team/SE116Team\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0636483e-e6f0-45b7-b6cc-279d6e26494b\" name=\"Changes\" comment=\"\" />\r\n      <created>1779796956678</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1779796956678</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2e0f5d031b490b1d8153a34b96d68bcaf0cf8f44)
++++ b/.idea/workspace.xml	(date 1780222051920)
+@@ -4,7 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0636483e-e6f0-45b7-b6cc-279d6e26494b" name="Changes" comment="" />
++    <list default="true" id="0636483e-e6f0-45b7-b6cc-279d6e26494b" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/SE116Team.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SE116Team.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/cells/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/cells/Zone.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -13,12 +19,24 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "gorkemyuksel35"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/gorkemyuksel35/SE116Team.git",
++    "accountId": "4327529a-93b0-49fd-836a-e5713f404442"
++  }
++}]]></component>
+   <component name="ProblemsViewState">
+     <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 1
+-}]]></component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 1
++}</component>
+   <component name="ProjectId" id="3EGFN91mc2K4bBfjzp8XtwClDhw" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+@@ -26,17 +44,45 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "Application.Main.executor": "Run",
+     "ModuleVcsDetector.initialDetectionPerformed": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+     "RunOnceActivity.git.unshallow": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "git-widget-placeholder": "master",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "/Users/duyguaydin/IdeaProjects/SE116PROJECT/SE116Team/SE116Team",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
+     "project.structure.last.edited": "Project",
+     "project.structure.proportion": "0.0",
+     "project.structure.side.proportion": "0.0"
+   }
+ }]]></component>
++  <component name="RunManager">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="core.Main" />
++      <module name="SE116Team" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="core.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Main" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -54,4 +100,7 @@
+     </task>
+     <servers />
+   </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: cells/Zone.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cells;\r\n\r\npublic abstract class Zone extends Cell{                        // This class helps us for storing all ingredients about economy\r\n    protected int level;\r\n    protected int electricity;\r\n    protected int water;\r\n    protected int internet;\r\n    protected int population;\r\n    protected int goods;\r\n    protected int lifestyle;\r\n    protected boolean security;\r\n    protected boolean health;\r\n    protected boolean education;\r\n    protected int lastProduction;\r\n\r\n    public Zone(int x, int y, char symbol) {\r\n        super(x, y, symbol);\r\n        this.level = 0;\r\n        this.lastProduction = 0;\r\n    }\r\n\r\n    @Override\r\n    public boolean isConnectable() {            // This must be return true because roads must be connectable\r\n        return true;\r\n    }\r\n\r\n    public void resetInputs() {\r\n        electricity = 0;\r\n        water = 0;\r\n        internet = 0;\r\n        population = 0;\r\n        goods = 0;\r\n        lifestyle = 0;\r\n        security = false;\r\n        health = false;\r\n        education = false;\r\n    }\r\n\r\n    public void receiveElectricity(int amount) {\r\n        electricity += amount;\r\n    }\r\n\r\n    public void receiveWater(int amount) {\r\n        water += amount;\r\n    }\r\n\r\n    public void receiveInternet(int amount) {\r\n        internet += amount;\r\n    }\r\n\r\n    public int getDemand() {\r\n        return Math.max(1, lastProduction);\r\n    }\r\n\r\n    public int getLevel() {\r\n        return level;\r\n    }\r\n\r\n    public abstract void updateZone();\r\n    public abstract int calculateProduction();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cells/Zone.java b/cells/Zone.java
+--- a/cells/Zone.java	(revision 2e0f5d031b490b1d8153a34b96d68bcaf0cf8f44)
++++ b/cells/Zone.java	(date 1780222051574)
+@@ -19,6 +19,90 @@
+         this.lastProduction = 0;
+     }
+ 
++    public void setLevel(int level) {
++        this.level = level;
++    }
++
++    public int getElectricity() {
++        return electricity;
++    }
++
++    public void setElectricity(int electricity) {
++        this.electricity = electricity;
++    }
++
++    public int getWater() {
++        return water;
++    }
++
++    public void setWater(int water) {
++        this.water = water;
++    }
++
++    public int getInternet() {
++        return internet;
++    }
++
++    public void setInternet(int internet) {
++        this.internet = internet;
++    }
++
++    public int getPopulation() {
++        return population;
++    }
++
++    public void setPopulation(int population) {
++        this.population = population;
++    }
++
++    public int getGoods() {
++        return goods;
++    }
++
++    public void setGoods(int goods) {
++        this.goods = goods;
++    }
++
++    public int getLifestyle() {
++        return lifestyle;
++    }
++
++    public void setLifestyle(int lifestyle) {
++        this.lifestyle = lifestyle;
++    }
++
++    public boolean isSecurity() {
++        return security;
++    }
++
++    public void setSecurity(boolean security) {
++        this.security = security;
++    }
++
++    public boolean isHealth() {
++        return health;
++    }
++
++    public void setHealth(boolean health) {
++        this.health = health;
++    }
++
++    public boolean isEducation() {
++        return education;
++    }
++
++    public void setEducation(boolean education) {
++        this.education = education;
++    }
++
++    public int getLastProduction() {
++        return lastProduction;
++    }
++
++    public void setLastProduction(int lastProduction) {
++        this.lastProduction = lastProduction;
++    }
++
+     @Override
+     public boolean isConnectable() {            // This must be return true because roads must be connectable
+         return true;
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_23\" default=\"true\" project-jdk-name=\"23\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 2e0f5d031b490b1d8153a34b96d68bcaf0cf8f44)
++++ b/.idea/misc.xml	(date 1780223643678)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="23" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" default="true" project-jdk-name="23" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
