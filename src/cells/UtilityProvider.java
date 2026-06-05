@@ -23,3 +23,4 @@ public abstract class UtilityProvider extends Cell {
         return utilType;
     }
 }
+

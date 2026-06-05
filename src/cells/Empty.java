@@ -5,3 +5,5 @@ public class Empty extends Cell {               // This class is help us for cre
         super(x,y, 'E');
     }
 }
+
+

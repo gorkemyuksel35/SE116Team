@@ -12,3 +12,4 @@ public abstract class ServiceBuilding extends Cell {
         return radius;
     }
 }
+
