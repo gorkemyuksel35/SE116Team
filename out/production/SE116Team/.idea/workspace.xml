@@ -9,10 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="We didn't use old things so, we closed them with comment lines.">
+    <list default="true" id="87cb9b4e-3d3b-4cc7-a55b-bbc80280659c" name="Changes" comment="Final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zones/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Commercial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zones/Housing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Housing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/zones/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/zones/Industrial.java" afterDir="false" />
     </list>
-    <list id="7a1f6b0a-39c5-4079-8061-2ebfddc809f8" name="Do not commit" comment="" />
+    <list id="7a1f6b0a-39c5-4079-8061-2ebfddc809f8" name="Do not commit" comment="">
+      <change beforePath="$PROJECT_DIR$/exceptions/SE116ConfigurationException.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +63,6 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
@@ -116,11 +120,7 @@
       <workItem from="1780410091872" duration="1190000" />
       <workItem from="1780411309920" duration="5979000" />
       <workItem from="1780434616080" duration="1988000" />
-      <workItem from="1780477285131" duration="14107000" />
-      <workItem from="1780506510406" duration="885000" />
-      <workItem from="1780559859564" duration="2684000" />
-      <workItem from="1780565871295" duration="233000" />
-      <workItem from="1780566708919" duration="162000" />
+      <workItem from="1780477285131" duration="867000" />
     </task>
     <task id="LOCAL-00001" summary="I wrote InternetHub.java, PowerPlant.java, UtilityProvider.java and WaterStation.java, and I tested them on my Main.java after that I saw they are working clearly.">
       <option name="closed" value="true" />
@@ -210,23 +210,7 @@
       <option name="project" value="LOCAL" />
       <updated>1780436608367</updated>
     </task>
-    <task id="LOCAL-00012" summary="We found new issues after final check so we fixed them.">
-      <option name="closed" value="true" />
-      <created>1780493275438</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1780493275438</updated>
-    </task>
-    <task id="LOCAL-00013" summary="We didn't use old things so, we closed them with comment lines.">
-      <option name="closed" value="true" />
-      <created>1780493465764</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1780493465764</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,8 +239,6 @@
     <MESSAGE value="We tested our project manually and we find some minor issues. After that we talked and fixed them. Finally, tested every stage." />
     <MESSAGE value="We finished our project. We did some changes on our codes and tested on CMD, IntellijIDE." />
     <MESSAGE value="Final" />
-    <MESSAGE value="We found new issues after final check so we fixed them." />
-    <MESSAGE value="We didn't use old things so, we closed them with comment lines." />
-    <option name="LAST_COMMIT_MESSAGE" value="We didn't use old things so, we closed them with comment lines." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
 </project>
